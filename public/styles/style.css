@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
+
+html {
+  --color-bg: #18202F;
+  --color-bg-sec: #111721;
+  --color-accent: #5352ED;
+  --color-accent-sec: #70A1FF;
+  --color-accent-alt: #B8E986;
+  --color-accent-grad: linear-gradient(90deg, #5352ED 0%, #70A1FF 100%);
+  --color-font: #fff;
+
+  --border-radius: 8px;
+  --base-font-size: 16px;
+  --space: 2rem;
+  --max-width: 1200px;
+
+  --mobile-bp: 640px;
+
+  background: var(--color-bg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--base-font-size);
+  color: var(--color-font);
+
+
+  @media only screen and (min-width: var(--mobile-bp)) {
+    --space: 2rem;
+  }
+}
+
+/* TODO mobile vars */
+
+html, body {
+  height: 100%;
+}
+
+.header {
+  background: var(--color-bg-sec);
+  padding: calc(var(--space) / 2);
+}
+
+.header__logo {
+  user-select: none;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: calc(100% - var(--space) - 2em);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--space) / 2);
+  padding-bottom: 0;
+}
+
+main > * {
+  margin: var(--space) 0;
+}
+
+.title {
+  margin-top: 25vh;
+  text-align: center;
+}
+
+main.init .title {
+  display: none;
+}
+
+main.init {
+  animation: reveal .25s ease;
+}
+
+output-area {
+  height: 100%;
+  width: 100%;
+  display: none;
+  min-height: 400px;
+  margin-bottom: calc(var(--space) / 2);
+  font-size: .8em;
+}
+
+upload-box {
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+@media only screen and (min-width: 640px) {
+  main {
+    padding: var(--space);
+    padding-bottom: 0;
+  }
+  output-area {
+    margin-bottom: var(--space);
+    font-size: 1em;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
