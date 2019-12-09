@@ -6,7 +6,7 @@ const canHaveNested = (type) => !!(DATAMAP[type].nested);
 const splitLines = (data) => data.split('\n');
 
 const getTagData = (row, type) => {
-  const data = row.split('|').slice(1);
+  const data = row.trim().split('|').slice(1);
   return data.reduce((res, val, i) => ({
     ...res,
     [DATAMAP[type].attrs[i]]: val,
